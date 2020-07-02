@@ -77,7 +77,6 @@ public class Block {
             public void run() {
                 for (int i = 0; i < 3 * n; ) {
                     getCondition(lock1, condition1, 1);
-                    System.out.println("thread1: " +count+ " " + count2 + " " + count3   + " " + i);
                     if(count == 1) {
                         print(file1, '1');
                         count = 2;
@@ -106,7 +105,6 @@ public class Block {
             public void run() {
                 for(int i = 0; i < 3 * n;) {
                     getCondition(lock2, condition2, 2);
-                    System.out.println("thread2: " +count + " " + count2  + " " + count3  + " " + i );
                     if(count == 2) {
                         print(file1, '2');
                         count = 3;
@@ -137,7 +135,6 @@ public class Block {
             public void run() {
                 for (int i = 0; i < 3 * n;) {
                     getCondition(lock3, condition3, 3);
-                    System.out.println("thread3: " +count + " " + count2  + " " + count3 + " " + i);
                     if( count == 3 ) {
                         print(file1, '3');
                         count = 4;
@@ -167,8 +164,6 @@ public class Block {
             public void run() {
                 for(int i = 0; i < 3 * n; ) {
                     getCondition(lock4, condition4, 4);
-
-                    System.out.println("thread4: " +count + " " + count2  + " " + count3  + " " + i);
                     if(count == 4){
                         print(file1, '4');
                         count = 5;
@@ -196,7 +191,6 @@ public class Block {
             public void run() {
                 for(int i = 0; i < 3 * n;) {
                     getCondition(lock5, condition5, 5);
-                    System.out.println("thread5: " +count + " " + count2  + " " + count3  + " " + i );
                     if(count == 5) {
                         print(file1, '5');
                         count = 1;

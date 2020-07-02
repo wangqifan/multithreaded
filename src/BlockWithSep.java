@@ -68,7 +68,6 @@ public class BlockWithSep {
             public void run() {
                 for (int i = 0; i < 3 * n; ) {
                     getCondition(semp1);
-                    System.out.println("thread1: " +count+ " " + count2 + " " + count3   + " " + i);
                     if(count == 1) {
                         print(file1, '1');
                         count = 2;
@@ -99,7 +98,6 @@ public class BlockWithSep {
             public void run() {
                 for(int i = 0; i < 3 * n;) {
                     getCondition(semp2);
-                    System.out.println("thread2: " +count + " " + count2  + " " + count3  + " " + i );
                     if(count == 2) {
                         print(file1, '2');
                         count = 3;
@@ -132,7 +130,6 @@ public class BlockWithSep {
             public void run() {
                 for (int i = 0; i < 3 * n;) {
                     getCondition(semp3);
-                    System.out.println("thread3: " +count + " " + count2  + " " + count3 + " " + i);
                     if( count == 3 ) {
                         print(file1, '3');
                         count = 4;
@@ -163,9 +160,7 @@ public class BlockWithSep {
             @Override
             public void run() {
                 for(int i = 0; i < 3 * n; ) {
-
                     getCondition(semp4);
-                    System.out.println("thread4: " +count + " " + count2  + " " + count3  + " " + i);
                     if(count == 4){
                         print(file1, '4');
                         count = 5;
@@ -195,7 +190,6 @@ public class BlockWithSep {
             public void run() {
                 for(int i = 0; i < 3 * n;) {
                     getCondition(semp5);
-                    System.out.println("thread5: " +count + " " + count2  + " " + count3  + " " + i );
                     if(count == 5) {
                         print(file1, '5');
                         count = 1;

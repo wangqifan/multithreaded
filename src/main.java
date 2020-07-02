@@ -3,7 +3,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import java.util.concurrent.Semaphore;
 
 
 public class main {
@@ -28,6 +28,10 @@ public class main {
         }
     }
 
+    private static boolean getCondition(int no) {
+        return count != no && count2 != no && count3 != no;
+    }
+
     public static void main(String[] args) throws InterruptedException {
 
       long startTime = System.currentTimeMillis();
@@ -40,10 +44,8 @@ public class main {
           @Override
           public void run() {
               for (int i = 0; i < 3 * n; ) {
-                  while (count != 1 && count2 != 1 && count3 != 1) {
-
+                  while (getCondition(1)) {
                   }
-                  System.out.println("thread1: " +count+ " " + count2 + " " + count3   + " " + i);
                   if(count == 1) {
                       print(file1, '1');
                       count = 2;
@@ -68,10 +70,9 @@ public class main {
             @Override
             public void run() {
                 for(int i = 0; i < 3 * n;) {
-                    while (count != 2 && count2 != 2 && count3 != 2) {
+                    while (getCondition(2)) {
 
                     }
-                    System.out.println("thread2: " +count + " " + count2  + " " + count3  + " " + i );
                     if(count == 2) {
                         print(file1, '2');
                         count = 3;
@@ -98,10 +99,9 @@ public class main {
            @Override
            public void run() {
                for (int i = 0; i < 3 * n;) {
-                   while (count != 3 && count2 != 3 && count3 != 3) {
+                   while (getCondition(3)) {
 
                    }
-                   System.out.println("thread3: " +count + " " + count2  + " " + count3 + " " + i);
                    if( count == 3 ) {
                        print(file1, '3');
                        count = 4;
@@ -127,10 +127,9 @@ public class main {
             @Override
             public void run() {
                 for(int i = 0; i < 3 * n; ) {
-                    while (count != 4 && count2 != 4 && count3 != 4 ) {
+                    while (getCondition(4)) {
 
                     }
-                    System.out.println("thread4: " +count + " " + count2  + " " + count3  + " " + i);
                     if(count == 4){
                         print(file1, '4');
                         count = 5;
@@ -154,10 +153,9 @@ public class main {
             @Override
             public void run() {
                 for(int i = 0; i < 3 * n;) {
-                    while (count != 5 && count2 != 5 && count3 != 5) {
+                    while (getCondition(5)) {
 
                     }
-                    System.out.println("thread5: " +count + " " + count2  + " " + count3  + " " + i );
                     if(count == 5) {
                         print(file1, '5');
                         count = 1;
